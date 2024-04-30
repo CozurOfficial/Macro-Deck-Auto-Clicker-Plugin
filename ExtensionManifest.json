@@ -6,7 +6,7 @@
   "packageId": "CozurOfficial.AutoClicker",
   "version": "2.0.0",
   "target-plugin-api-version": 40,
-  "target-macro-deck-version": "1.13.0",
+  "target-macro-deck-version": "2.13.0",
   "dll": "AutoClicker.dll",
   "author-discord-userid": "460120849786339338"
 }
