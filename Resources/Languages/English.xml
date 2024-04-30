@@ -3,11 +3,21 @@
 	<__Language__>English</__Language__>
 	<__LanguageCode__>en</__LanguageCode__>
 	<__Author__>Macro Deck</__Author__>
-
-	<ActionAutoClick>Clicking on coordinates</ActionAutoClick>
-	<ActionAutoClickDescription>Follow the coordinates, move it to the desired location, write it in the x and y boxes and confirm if you want to right-left click.</ActionAutoClickDescription>
-	<TexCoordinateX>Enter X Coordinate</TexCoordinateX>
-	<TexCoordinateY>Enter Y Coordinate</TexCoordinateY>
-	<TexLeftClick>Left Click</TexLeftClick>
-	<TexRightClick>Right Click</TexRightClick>
+	//
+	// ClickingCoordinates
+	//
+	<ClickingCoordinates>Clicking on coordinates</ClickingCoordinates>
+	<ClickingCoordinatesDescription>Follow the coordinates, move it to the desired location, write it in the x and y boxes and confirm if you want to right-left click.*If the Repeater is Active, It Serves as a Toggle*</ClickingCoordinatesDescription>
+	<TextCoordinateX>Enter X Coordinate</TextCoordinateX>
+	<TextCoordinateY>Enter Y Coordinate</TextCoordinateY>
+	<TextLeftClick>Left Click</TextLeftClick>
+	<TextRightClick>Right Click</TextRightClick>
+	<TextChkRepeater>Repeater</TextChkRepeater>
+	<TextRepeater>Enter Milliseconds</TextRepeater>
+	<TextMilliseconds>Milliseconds</TextMilliseconds>
+	//
+	// ToggleVariable
+	//
+	<ToggleVariable>Coordinate Toggle</ToggleVariable>
+	<ToggleVariableDescription>To use this you need to add a variable. It is used to turn variables on and off, make sure to close them when you are done.</ToggleVariableDescription>
 </PluginStrings>

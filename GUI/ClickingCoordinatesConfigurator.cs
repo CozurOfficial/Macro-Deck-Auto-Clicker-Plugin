@@ -33,6 +33,7 @@ namespace CozurOfficial.AutoClicker.GUI
             // Sol ve sağ tıklama seçeneklerini al
             bool leftClick = chkLeftClick.Checked;
             bool rightClick = chkRightClick.Checked;
+            bool repeater = chkRepeater.Checked;
 
             // Yapılandırmayı kaydet
             JObject configuration = new JObject();
@@ -40,6 +41,18 @@ namespace CozurOfficial.AutoClicker.GUI
             configuration["mouseY"] = mouseY;
             configuration["leftClick"] = leftClick;
             configuration["rightClick"] = rightClick;
+            configuration["repeater"] = repeater;
+
+            // Tekrarlayıcı aralığını al, eğer değer girilmişse
+            if (int.TryParse(textRepeater.Text, out int repeaterInterval))
+            {
+                configuration["repeaterInterval"] = repeaterInterval;
+            }
+            else
+            {
+                // Eğer değer girilmemişse otomatik olarak 0 al
+                configuration["repeaterInterval"] = 0;
+            }
 
             // Yapılandırmayı JSON formatına dönüştür
             string configJson = configuration.ToString();
@@ -48,12 +61,12 @@ namespace CozurOfficial.AutoClicker.GUI
             this.pluginAction.Configuration = configJson;
 
             this.pluginAction.ConfigurationSummary =
-            $"Mouse X: {textBoxCoordinateX.Text}, Mouse Y: {textBoxCoordinateY.Text}, {PluginLanguageManager.PluginStrings.TexLeftClick}: {chkLeftClick.Checked}, {PluginLanguageManager.PluginStrings.TexRightClick}: {chkRightClick.Checked}";
-
+                $"Mouse X: {textBoxCoordinateX.Text}, Mouse Y: {textBoxCoordinateY.Text}, {PluginLanguageManager.PluginStrings.TextLeftClick}: {chkLeftClick.Checked}, {PluginLanguageManager.PluginStrings.TextRightClick}: {chkRightClick.Checked}, {PluginLanguageManager.PluginStrings.TextChkRepeater}: {chkRepeater.Checked}, {PluginLanguageManager.PluginStrings.TextMilliseconds}: {repeaterInterval}";
 
             // Kaydetme işlemi başarılı oldu
             return true;
         }
+
 
 
         private void LoadConfig()
@@ -66,6 +79,7 @@ namespace CozurOfficial.AutoClicker.GUI
             {
                 chkLeftClick.Checked = false;
                 chkRightClick.Checked = false;
+                chkRepeater.Checked = false;
                 return;
             }
 
@@ -75,14 +89,18 @@ namespace CozurOfficial.AutoClicker.GUI
             // Fare koordinatlarını ve tıklama seçeneklerini al
             int mouseX = (int)configuration["mouseX"];
             int mouseY = (int)configuration["mouseY"];
+            int repeaterInterval = (int)configuration["repeaterInterval"];
             bool leftClick = (bool)configuration["leftClick"];
             bool rightClick = (bool)configuration["rightClick"];
+            bool repeater = (bool)configuration["repeater"];
 
             // Kontrol elemanlarına yapılandırmadaki değerleri yükle
             textBoxCoordinateX.Text = mouseX.ToString();
             textBoxCoordinateY.Text = mouseY.ToString();
+            textRepeater.Text = repeaterInterval.ToString();
             chkLeftClick.Checked = leftClick;
             chkRightClick.Checked = rightClick;
+            chkRepeater.Checked = repeater;
         }
     }
 }

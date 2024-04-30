@@ -1,5 +1,6 @@
 ﻿using CozurOfficial.AutoClicker.Language;
 using SuchByte.MacroDeck.GUI.CustomControls;
+using System;
 using System.Windows.Forms;
 
 namespace CozurOfficial.AutoClicker.GUI
@@ -36,8 +37,10 @@ namespace CozurOfficial.AutoClicker.GUI
             this.labelCoordinateY = new System.Windows.Forms.Label();
             this.textBoxCoordinateX = new SuchByte.MacroDeck.GUI.CustomControls.RoundedTextBox();
             this.textBoxCoordinateY = new SuchByte.MacroDeck.GUI.CustomControls.RoundedTextBox();
+            this.textRepeater = new SuchByte.MacroDeck.GUI.CustomControls.RoundedTextBox();
             this.chkLeftClick = new System.Windows.Forms.CheckBox();
             this.chkRightClick = new System.Windows.Forms.CheckBox();
+            this.chkRepeater = new System.Windows.Forms.CheckBox();
             // 
             // textBoxCoordinateX
             // 
@@ -52,7 +55,7 @@ namespace CozurOfficial.AutoClicker.GUI
             this.textBoxCoordinateX.Padding = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.textBoxCoordinateX.PasswordChar = false;
             this.textBoxCoordinateX.PlaceHolderColor = System.Drawing.Color.Gray;
-            this.textBoxCoordinateX.PlaceHolderText = PluginLanguageManager.PluginStrings.TexCoordinateX;
+            this.textBoxCoordinateX.PlaceHolderText = PluginLanguageManager.PluginStrings.TextCoordinateX;
             this.textBoxCoordinateX.ReadOnly = false;
             this.textBoxCoordinateX.SelectionStart = 0;
             this.textBoxCoordinateX.Size = new System.Drawing.Size(130, 22);
@@ -72,12 +75,33 @@ namespace CozurOfficial.AutoClicker.GUI
             this.textBoxCoordinateY.Padding = new System.Windows.Forms.Padding(8, 5, 8, 5);
             this.textBoxCoordinateY.PasswordChar = false;
             this.textBoxCoordinateY.PlaceHolderColor = System.Drawing.Color.Gray;
-            this.textBoxCoordinateY.PlaceHolderText = PluginLanguageManager.PluginStrings.TexCoordinateY;
+            this.textBoxCoordinateY.PlaceHolderText = PluginLanguageManager.PluginStrings.TextCoordinateY;
             this.textBoxCoordinateY.ReadOnly = false;
             this.textBoxCoordinateY.SelectionStart = 0;
             this.textBoxCoordinateY.Size = new System.Drawing.Size(130, 22);
             this.textBoxCoordinateY.TabIndex = 0;
             this.textBoxCoordinateY.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // textRepeater
+            // 
+            this.textRepeater.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.textRepeater.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textRepeater.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textRepeater.Icon = null;
+            this.textRepeater.Location = new System.Drawing.Point(14, 220);
+            this.textRepeater.MaxCharacters = 32767;
+            this.textRepeater.Multiline = true;
+            this.textRepeater.Name = "textRepeater";
+            this.textRepeater.Padding = new System.Windows.Forms.Padding(8, 5, 8, 5);
+            this.textRepeater.PasswordChar = false;
+            this.textRepeater.PlaceHolderColor = System.Drawing.Color.Gray;
+            this.textRepeater.PlaceHolderText = PluginLanguageManager.PluginStrings.TextRepeater;
+            this.textRepeater.ReadOnly = false;
+            this.textRepeater.SelectionStart = 0;
+            this.textRepeater.Size = new System.Drawing.Size(130, 22);
+            this.textRepeater.TabIndex = 0;
+            this.textRepeater.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textRepeater.Enabled = false;
             // 
             // chkLeftClick
             //
@@ -87,7 +111,7 @@ namespace CozurOfficial.AutoClicker.GUI
             this.chkLeftClick.Name = "chkLeftClick";
             this.chkLeftClick.Size = new System.Drawing.Size(66, 23);
             this.chkLeftClick.TabIndex = 0;
-            this.chkLeftClick.Text = PluginLanguageManager.PluginStrings.TexLeftClick;
+            this.chkLeftClick.Text = PluginLanguageManager.PluginStrings.TextLeftClick;
             this.chkLeftClick.UseVisualStyleBackColor = true;
             // 
             // chkRightClick
@@ -98,8 +122,20 @@ namespace CozurOfficial.AutoClicker.GUI
             this.chkRightClick.Name = "chkRightClick";
             this.chkRightClick.Size = new System.Drawing.Size(66, 23);
             this.chkRightClick.TabIndex = 0;
-            this.chkRightClick.Text = PluginLanguageManager.PluginStrings.TexRightClick;
+            this.chkRightClick.Text = PluginLanguageManager.PluginStrings.TextRightClick;
             this.chkRightClick.UseVisualStyleBackColor = true;
+            // 
+            // chkRepeater
+            //
+            this.chkRepeater.AutoSize = true;
+            this.chkRepeater.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkRepeater.Location = new System.Drawing.Point(10, 130);
+            this.chkRepeater.Name = "chkRepeater";
+            this.chkRepeater.Size = new System.Drawing.Size(66, 23);
+            this.chkRepeater.TabIndex = 0;
+            this.chkRepeater.Text = PluginLanguageManager.PluginStrings.TextChkRepeater;
+            this.chkRepeater.UseVisualStyleBackColor = true;
+            this.chkRepeater.CheckedChanged += ChkRepeater_CheckedChanged;
             // 
             // AutoClickConfigurator
             // 
@@ -109,8 +145,10 @@ namespace CozurOfficial.AutoClicker.GUI
             this.Controls.Add(this.labelCoordinateY);
             this.Controls.Add(this.textBoxCoordinateX);
             this.Controls.Add(this.textBoxCoordinateY);
+            this.Controls.Add(this.textRepeater);
             this.Controls.Add(this.chkLeftClick);
             this.Controls.Add(this.chkRightClick);
+            this.Controls.Add(this.chkRepeater);
             this.Name = "AutoClickConfigurator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,6 +186,12 @@ namespace CozurOfficial.AutoClicker.GUI
             timer.Start();
         }
 
+        private void ChkRepeater_CheckedChanged(object sender, EventArgs e)
+        {
+            // Enable/disable the repeater TextBox based on the CheckBox state
+            textRepeater.Enabled = chkRepeater.Checked;
+        }
+
 
 
         #endregion
@@ -156,8 +200,9 @@ namespace CozurOfficial.AutoClicker.GUI
         private System.Windows.Forms.Label labelCoordinateY;
         private RoundedTextBox textBoxCoordinateX;
         private RoundedTextBox textBoxCoordinateY;
+        private RoundedTextBox textRepeater;
         private System.Windows.Forms.CheckBox chkLeftClick;
         private System.Windows.Forms.CheckBox chkRightClick;
+        private System.Windows.Forms.CheckBox chkRepeater;
     }
 }
-

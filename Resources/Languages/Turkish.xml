@@ -3,11 +3,21 @@
 	<__Language__>Turkish</__Language__>
 	<__LanguageCode__>tr</__LanguageCode__>
 	<__Author__>Macro Deck</__Author__>
-
-	<ActionAutoClick>Koordinatlara Git</ActionAutoClick>
-	<ActionAutoClickDescription>Koordinatları takip edin, istediğiniz yere taşıyın, x ve y kutularına yazın ve sağ-sol tıklamayı isteyip istemediğinizi onaylayın.</ActionAutoClickDescription>
-	<TexCoordinateX>X Koordinatı Gir</TexCoordinateX>
-	<TexCoordinateY>Y Koordinatı Gir</TexCoordinateY>
-	<TexLeftClick>Sol Tıkla</TexLeftClick>
-	<TexRightClick>Sağ Tıkla</TexRightClick>
+	//
+	// ClickingCoordinates
+	//
+	<ClickingCoordinates>Koordinatlara Git</ClickingCoordinates>
+	<ClickingCoordinatesDescription>Koordinatları takip edin, istediğiniz yere taşıyın, x ve y kutularına yazın ve sağ-sol tıklamayı isteyip istemediğinizi onaylayın.*Tekrarlayıcı Aktif ise Geçiş Görevi Görür*</ClickingCoordinatesDescription>
+	<TextCoordinateX>X Koordinatı Gir</TextCoordinateX>
+	<TextCoordinateY>Y Koordinatı Gir</TextCoordinateY>
+	<TextLeftClick>Sol Tıkla</TextLeftClick>
+	<TextRightClick>Sağ Tıkla</TextRightClick>
+	<TextChkRepeater>Yenileyici</TextChkRepeater>
+	<TextRepeater>Millisaniye Yazın</TextRepeater>
+	<TextMilliseconds>Millisaniye</TextMilliseconds>
+	//
+	// ToggleVariable
+	//
+	<ToggleVariable>Koordinat Aç / Kapat</ToggleVariable>
+	<ToggleVariableDescription>Bunu kullanmak için bir değişken eklemeniz gerekir. Değişkenleri açıp kapatmak için kullanılır, işiniz bittiğinde kapattığınızdan emin olun.</ToggleVariableDescription>
 </PluginStrings>

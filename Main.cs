@@ -13,6 +13,10 @@ using System.Drawing;
 using System.Reflection;
 using System.Threading;
 using WindowsInput;
+using CozurOfficial.AutoClicker.Utils;
+using SuchByte.MacroDeck.Variables;
+using System.Windows.Forms;
+using SuchByte.MacroDeck;
 
 namespace CozurOfficial.AutoClicker
 {
@@ -38,16 +42,29 @@ namespace CozurOfficial.AutoClicker
 
         public override void Enable()
         {
+            // Dil desteğini başlat
             PluginLanguageManager.Initialize();
+
+            // Eylemleri başlat
             this.Actions = new List<PluginAction>
             {
-                new ClickingCoordinates(),
+               new ClickingCoordinates(),
+               new ToggleVariable(),
             };
 
+            // Fare konumunu her 500 milisaniyede bir güncelle
             this.TickTimer = new System.Timers.Timer()
             {
                 Enabled = true,
-                Interval = 2000,
+                Interval = 100,
+            };
+            this.TickTimer.Elapsed += (sender, e) =>
+            {
+                // Fare konumunu al
+                Point cursorPosition = Cursor.Position;
+
+                // Fare konumunu güncelle
+                VariableHelper.UpdateMouseCoordinates(cursorPosition);
             };
             this.TickTimer.Start();
         }
